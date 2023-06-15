@@ -1,0 +1,20 @@
+{% extends 'venta/index.html' %}
+
+{% block title %}
+    Detalle de Abonos
+{% endblock title %}
+
+{% block content_abono %}
+    <ul>
+        <li>Abonado: {{ object.abonado }}</li>
+        <li>Producto: {{ object.producto.nombre }}</li>
+        <li>Precio unitario: {{ object.producto.precio }}</li>
+        <li>Cantidad comprada: {{ object.cantidad }} {{ object.producto.unidad_de_medida }}</li>
+        <li>Precio total: ${{ object.precio_total }}</li>
+        <li>Fecha de abono {{ object.fecha_abono }}</li>
+    </ul>
+
+    {% url 'abono:index' as url %}
+    {% include 'home/index_back.html' with link=url %}
+
+{% endblock content_venta %}

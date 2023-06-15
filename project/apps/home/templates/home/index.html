@@ -1,0 +1,36 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h3 class="d-flex align-items-center">Bienvenido {{ user.username }}
+            {% if user.abonado.avatar.url %}
+                <img src="{{ user.abonado.avatar.url }}" alt="Avatar" style="height: 30px;" /> 
+            {% else %}
+                <img src="{% static 'abono/avatares.png' %}" alt="avatar" style="height: 30px;" />
+            {% endif %}  
+        </h3>
+    {% endif %}
+    {% if messages %}{{ messages }}{% endif %}
+    {% if user.is_staff %}
+        <div class="row">
+            <a href="{% url 'admin:index' %}" class="btn btn-outline-dark">Administración</a>
+        </div>
+        <div class="row">
+            <a href="{% url 'home:register' %}" class="btn btn-outline-dark">Registrar nuevo abonado</a>
+        </div>
+    {% endif %}
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/img/ZSequipo2.jpg' %}" alt="Presentación" />
+        </div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Eslovenos Fc</h1>
+            <p>
+               Eslovenia Fc o Zedinjena Slovenija es un grupo de jovenes eslovenos que juegan un torneo amateur. La comunidad eslovena tiene muchas actividades y una de ellas es el amor por el deporte, nosotros representamos a los eslovenos con nuestro equipo de futbol.
+            </p>
+            <a class="btn btn-info" href="https://web.whatsapp.com/">WhatsApp</a> <!--te dirigira al whatsapp  de "Eslovenia fc"-->
+        </div>
+    </div>
+{% endblock content %}

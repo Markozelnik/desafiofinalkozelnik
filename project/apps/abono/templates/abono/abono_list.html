@@ -1,0 +1,49 @@
+{% extends 'abono/list.html' %}
+
+
+{% block title %}
+    Lista de Abono y Productos
+{% endblock title %}
+
+{% block search %}
+    <div class="py-lg-4">
+        <form action="{% url 'abono:venta_list' %}" method="get">
+            <input name="consulta" type="text" placeholder="Buscar...">
+        </form>
+    </div>
+{% endblock search %}
+ 
+{% block table_header %}
+    <tr>
+        <th>Abonado</th>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Fecha</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+{% endblock table_header %}
+ 
+{% block table_body %}
+    {% for abono in object_list %}
+        <tr>
+            <td>{{ abono.abonado }}</td>
+            <td>{{ abono.producto.nombre }}</td>
+            <td>{{ abono.precio_total }}</td>
+            <td>{{ abono.fecha_abono }}</td>
+            <td>
+                <a href="{% url 'abono:abono_detail' abono.id %}"
+                   class="btn btn-secondary btn-sm">Ver detalle</a>
+            </td>
+            <td>
+                <a href="{% url 'abono:abono_update' abono.id %}"
+                   class="btn btn-primary btn-sm">Actualizar</a>
+            </td>
+            <td>
+                <a href="{% url 'abono:abono_delete' abono.id %}"
+                   class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock table_body %}

@@ -1,0 +1,19 @@
+{% extends 'abono/index.html' %}
+
+{% block title %}
+    Abono
+{% endblock title %}
+
+{% block content_abono %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid gap-3">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </form>
+    {% url 'abono:index' as url %}
+    {% include 'home/index_back.html' with link=url %}
+
+{% endblock content_abono %}

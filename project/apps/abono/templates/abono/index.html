@@ -1,0 +1,24 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+    <h1 class="shadow-lg text-center">App Abono</h1>
+    <div class="container mt-lg-3">
+        <h3 class="pb-lg-3">
+
+            {% block title %}
+                Abonos y Productos
+            {% endblock title %}
+        </h3>
+
+        {% block content_abono %}
+            <div class="d-grid gap-3">
+                {% if user.is_staff %}
+                    <a href="{% url 'abono:abono_create' %}" class="btn btn-primary">Crear</a>
+                {% endif %}
+                <a href="{% url 'abono:abono_list' %}" 
+                   class="btn btn-primary">Listar</a>
+                <br>
+            </div>
+        {% endblock content_abono %}
+    </div>
+{% endblock content %}
