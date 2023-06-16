@@ -10879,3 +10879,9 @@ textarea.form-control-lg {
 .divgeneralsimagenes{
   transition: all 2s;
 }
+
+/*fondo de pantalla*/
+
+.fondodepantalla{
+  background-color: #000;
+}
