@@ -15,10 +15,10 @@
     {% if messages %}{{ messages }}{% endif %}
     {% if user.is_staff %}
         <div class="row">
-            <a href="{% url 'admin:index' %}" class="btn btn-outline-dark">Administración</a>
+            <a href="{% url 'admin:index' %}" class="btn btn-outline-primary">Administración</a>
         </div>
         <div class="row">
-            <a href="{% url 'home:register' %}" class="btn btn-outline-dark">Registrar nuevo abonado</a>
+            <a href="{% url 'home:register' %}" class="btn btn-outline-primary">Registrar nuevo abonado</a>
         </div>
     {% endif %}
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
