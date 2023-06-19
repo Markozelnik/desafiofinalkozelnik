@@ -12,9 +12,9 @@ class AbonoAdmin(admin.ModelAdmin):
         "producto",
         "cantidad",
         "precio_total",
-        "fecha_venta",
+        "fecha_abono",
     )
     list_display_links = ("producto",)
     search_fields = ("producto.nombre", "abonado")
     list_filter = ("abonado",)
-    date_hierarchy = "fecha_venta"
+    date_hierarchy = "fecha_abono"
